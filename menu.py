@@ -3,7 +3,7 @@ def escolha_menu():
     Função para exibir o menu de opções e capturar a escolha do usuário.
     - Exibe o menu de opções.
     - Captura a escolha do usuário.
-    - Retorna a opção escolhida pelo usuário.
+    - Retorna a opção do menu escolhida pelo usuário.
     '''
     
     while True:
@@ -17,20 +17,24 @@ def escolha_menu():
 -------------------------
 ''')
         escolha = int(input('Escolha uma das opções do menu: '))
+
+        # Verifica se a escolha está dentro do intervalo válido
         if escolha < 1 or escolha > 4:
             print('\n** Opção inválida. Tente novamente. **')
+
+        # Confirmação da escolha
         else:
-            confirma = input(f'Você certeza que deseja a opção {escolha}? (Sim ou não) : ')
-            if confirma.upper() == 'SIM':
+            confirm = input(f'Você certeza que deseja a opção {escolha}? (Sim ou não) : ')
+            if confirm.upper() == 'SIM':
                 break
     return escolha
 
-def perguntas():
+def perguntas_frequentes():
     '''
     Função para exibir as perguntas frequentes e capturar a escolha do usuário.
     - Exibe as perguntas frequentes
-    - Captura a escolha do usuário
-    - Retorna a opção escolhida pelo usuário
+    - Captura a escolha de pergunta do usuário
+    - Retorna o número da pergunta escolhida
     '''
     while True:
         print('''
@@ -44,13 +48,15 @@ def perguntas():
 ---------------------------------------------------
 ''')
         escolha = int(input('Selecione uma opção de pergunta frequente: '))
+
+        # Verifica se a escolha está dentro do intervalo válido
         if escolha < 1 or escolha > 5:
             print('\n** Opção inválida, tente novamente. **')
         else:
             break
     return escolha
 
-def imprimir_pergunta(opc_pergunta):
+def imprimir_resposta(opc_pergunta):
     '''
     Função para imprimir ao usuário a resposta da pergunta escolhida.
     - Imprime a resposta somente da pergunta escolhida pelo usuário
@@ -62,7 +68,7 @@ def imprimir_pergunta(opc_pergunta):
             case 1:
                 print('''
 -------------------------------------------------------------------------------------------------------------------
-COMO CADASTRAR NO APLICATIVO? (PORTAL PACIENTE)
+1 - COMO CADASTRAR NO APLICATIVO? (PORTAL PACIENTE)
 
 1. Acesse o aplicativo
 Abra o aplicativo PortalPaciente no seu celular.
@@ -89,7 +95,7 @@ Para filtrar os resultados, você pode selecionar uma das opções de período:
             case 2:
                 print('''
 -------------------------------------------------------------------------------------------------------------------
-COMO CADASTRAR NO APLICATIVO? (PORTAL PACIENTE)
+2 - COMO CADASTRAR NO APLICATIVO? (PORTAL PACIENTE)
 
 1. Acesse o aplicativo
 Abra o aplicativo PortalPaciente no seu celular.
@@ -115,7 +121,7 @@ Para filtrar os resultados, você pode selecionar uma das opções de período:
             case 3:
                 print('''
 ----------------------------------------------------------------------------------------------------------------
-ESQUECEU A SENHA?
+3 - ESQUECEU A SENHA?
 
 1. Acesse o aplicativo
 Abra o aplicativo PortalPaciente no seu celular e clique em "Acessar Portal".
@@ -138,7 +144,7 @@ Após preencher os dados, toque no botão "Localizar Paciente" para continuar o 
             case 4:
                 print('''
 ----------------------------------------------------------------------------------------------
-ONDE PEGO AS MINHAS RECEITAS?
+4 - ONDE PEGO AS MINHAS RECEITAS?
 
 1. Acesse o aplicativo
 Abra o aplicativo PortalPaciente no seu celular.
@@ -162,7 +168,7 @@ Selecione a categoria desejada para visualizar suas receitas.
             case 5:
                 print('''
 --------------------------------------------------------------------------------------------------------------------------------------
-COMO ACESSAR MINHA TELECONSULTA
+5 - COMO ACESSAR MINHA TELECONSULTA?
 
 1. Acesse o aplicativo
 Abra o aplicativo PortalPaciente no seu celular.
@@ -185,9 +191,12 @@ Toque em "Acessar" para entrar na consulta.
 ---------------------------------------------------------------------------------------------------------------------------------------
 ''')
             case _:
-                print('Opção inválida')
-        escolha = input('Deseja ver a resposta para outra pergunta? (Sim para ver outra resposta ou não para voltar ao menu principal): ')
-        if escolha.upper() == 'SIM':
+                print('\n** Opção inválida. Tente novamente. **')
+
+        maisPerguntas = input('Deseja ver a resposta para outra pergunta? (Sim para ver outra resposta ou não para voltar ao menu principal): ')
+
+        # Verifica se o usuário deseja ver outra pergunta
+        if maisPerguntas.upper() == 'SIM':
             print('''
 *-- PERGUNTAS FREQUENTES --*
 ---------------------------------------------------
@@ -199,8 +208,21 @@ Toque em "Acessar" para entrar na consulta.
 ---------------------------------------------------
 ''')
             opc = int(input('Selecione uma opção de pergunta frequente: '))
-        else:
+        elif maisPerguntas.upper() == 'NÃO':
             break
+        else:
+            print('\n** Opção inválida. Tente novamente. **')
+            print('''
+*-- PERGUNTAS FREQUENTES --*
+---------------------------------------------------
+1 - Como cadastrar no aplicativo? (Portal Paciente)
+2 - Onde eu acesso meus resultados?
+3 - Esqueceu a senha?
+4 - Onde pego as minhas receitas?
+5 - Como acessar minha teleconsulta?
+---------------------------------------------------
+''')
+            opc = int(input('Selecione uma opção de pergunta frequente: '))
 
 def quem_somos():
     '''
@@ -218,7 +240,7 @@ Nosso foco é criar soluções acessíveis e funcionais que facilitem o uso da t
 Nosso compromisso é com a inclusão, eficiência e impacto real.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ''')
-    escolha = int(input('Voltar ao menu principal ou sair? (1 para voltar ou 2 para sair): '))
+    escolha = input('Deseja voltar ao menu principal? ("Sim" para voltar ou "não" para sair): ')
     return escolha
 
 def contato():
@@ -226,6 +248,7 @@ def contato():
     Função para exibir informações de contato com a empresa e permitir ao usuário que ele envie uma mensagem.
     - Exibe as informações de contato 
     - Dá ao usuário a escolha de enviar uma mensagem
+    - Retorna essa escolha
     '''
     print('''
 *-- CONTATO --*
@@ -244,9 +267,9 @@ Informações de contato:
     escolha = input('Deseja enviar uma mensagem? (Sim ou não): ')
     return escolha
 
-def coletar_info_contato():
+def coletar_info_usuario():
     '''
-    Função para coletar dados do usuário e a mensagem que ele deseja enviar.
+    Função para coletar informações do usuário e a mensagem que ele deseja enviar.
     - Coleta os dados em uma lista
     - Exibe as informações e a mensagem do usuário
     - Possibilita ao usuário corrigir as informações fornecidas e a mensagem
@@ -256,31 +279,60 @@ def coletar_info_contato():
     while True:
         infos = []
 
+        # Coleta as informações do usuário
         nome = input('\nNome*: ')
         infos.append(nome)
 
         email = input('E-mail*: ')
         infos.append(email)
 
-        validar_assunto = input('Deseja adicionar um assunto? (Sim ou não): ')
-        if validar_assunto.upper() == 'SIM':
-            assunto = input('Assunto: ')
-            infos.append(assunto)
-    
+        # Pergunta se o usuário deseja adicionar um assunto
+        # Caso queira, coleta o assunto
+        while True:
+            validar_assunto = input('Deseja adicionar um assunto? (Sim ou não): ')
+            if validar_assunto.upper() == 'SIM':
+                assunto = input('Assunto: ')
+                infos.append(assunto)
+                break
+            elif validar_assunto.upper() == 'NÃO':
+                infos.append('*Sem assunto*')
+                break
+            else:
+                print('Resposta inválida')
+
+        # Coleta a mensagem do usuário
         mensagem = input('Mensagem*: ')
         infos.append(mensagem)
         print('\nInformações:')
+
+        # Exibe as informações coletadas
         for i in infos:
             print(i)
         
-        confirma = input('\nAs informações estão corretas? (Sim ou não): ')
-        if confirma.upper() == 'SIM':
-            print('Mensagem enviada com sucesso!')
-            escolha = int(input('\nVoltar ao menu principal ou sair? (1 para voltar ou 2 para sair): '))
-            break
-        else:
-            print('\nPor favor, preencha as informações novamente.')
-    return escolha
+        # Pergunta se as informações estão corretas
+        while True:
+            correto = input('\nAs informações estão corretas? (Sim ou não): ')
+            if correto.upper() == 'SIM':
+                print('Mensagem enviada com sucesso!')
+                break
+            elif correto.upper() == 'NÃO':
+                print('\nPor favor, preencha as informações novamente.')
+                break
+            else:
+                print('Resposta inválida\n')
+        
+        # Pergunta se o usuário deseja voltar ao menu ou sair
+        while True:
+            voltarMenu = input('\nDeseja voltar ao menu principal? ("Sim" para voltar ou "não" para sair): ')
+            if voltarMenu.upper() == 'SIM':
+                break
+            elif voltarMenu.upper() == 'NÃO':
+                break
+            else:
+                print('Resposta inválida\n')
+        if voltarMenu.upper() == 'SIM' or voltarMenu.upper() == 'NÃO':
+                break
+    return voltarMenu
 
 def executar_menu():
     """
@@ -290,25 +342,32 @@ def executar_menu():
     """
     while True:
         escolha = escolha_menu()
-        if escolha == 1:
-            opc_pergunta = perguntas()
-            imprimir_pergunta(opc_pergunta)
-        elif escolha == 2:
-            quem_somos_info = quem_somos()
-            if quem_somos_info != 1:
-                print('Saindo...')
-                break
-        elif escolha == 3:
-            mensagem = contato()
-            if mensagem.upper() == 'SIM':
-                infos = coletar_info_contato()
-                if infos != 1:
-                    print('Saindo...')
+        
+        # Executa a opção escolhida pelo usuário
+        match escolha:
+            case 1:
+                pergunta = perguntas_frequentes()
+                imprimir_resposta(pergunta)
+            case 2:
+                voltarMenu = quem_somos()
+                if voltarMenu.upper() == 'NÃO':
+                    print('\nSaindo...')
                     break
-        elif escolha == 4:
-            print('Saindo...')
-            break
-        else:
-            print('Opção inválida. Tente novamente.')
+                elif voltarMenu.upper() != 'NÃO' and voltarMenu.upper() != 'SIM':
+                    print('\n** Opção inválida. Tente novamente. **')
+            case 3:
+                decisao_mensagem = contato()
+                if decisao_mensagem.upper() == 'SIM':
+                    voltarMenu = coletar_info_usuario()
+                    if voltarMenu.upper() == 'NÃO':
+                        print('\nSaindo...')
+                        break
+                elif decisao_mensagem.upper() != 'SIM' and decisao_mensagem.upper() != 'NÃO':
+                    print('\n** Opção inválida. Tente novamente. **')
+            case 4:
+                print('\nSaindo...')
+                break
+            case _:
+                print('\n** Opção inválida. Tente novamente. **')
 
 executar_menu()
