@@ -71,33 +71,45 @@ def imprimir_resposta(opc_pergunta):
 1 - COMO CADASTRAR NO APLICATIVO? (PORTAL PACIENTE)
 
 1. Acesse o aplicativo
-Abra o aplicativo PortalPaciente no seu celular.
+Toque no ícone do aplicativo PortalPaciente no seu celular.
+Em seguida, toque no botão "Acessar Portal".
 
-2. Realize o login
-Faça o login com seu usuário e senha.
+2. Começar o cadastro da senha
+Agora, toque em "Cadastrar Senha".
+Vai aparecer um campo para digitar o seu CPF.
+Digite seu CPF com atenção e toque no botão "Localizar Paciente".
 
-3. Clique no menu
-Toque no ícone de menu(geralmente representado por três linhas horizontais).
+3. Verificar se você é o paciente certo
+Se aparecer outro nome que não é o seu, toque em "Alterar Paciente" para voltar e digitar o CPF correto.
+Se estiver tudo certo, continue para o próximo passo.
 
-4. Selecionar a opção "Meus Resultados"
-No menu, clique no primeiro botão, localizado no canto superior à esquerda, onde está escrito "Meus Resultados".
+4. Preencher seus dados de contato
+Digite o seu e-mail.
+Depois, digite o mesmo e-mail novamente para confirmar.
+Digite o seu celular com o DDD (exemplo: 11 91234-5678).
+Confirme o número do celular no campo seguinte.
+Atenção: Esses dados são importantes para você receber informações de agendamentos ou recuperar sua senha, caso esqueça.
 
-5. Visualizar resultados
-Lá, você pode clicar nas opções "Laboratório" e "Imagem" para acessar seus resultados de exames.
+5. Confirmar informações pessoais
+Escolha a opção correta com o nome completo da sua mãe.
+Depois, selecione o ano correto do seu nascimento.
 
-6. Filtrar resultados
-Para filtrar os resultados, você pode selecionar uma das opções de período:
-Últimos 3 meses
-Últimos 6 meses
-Último 12 meses
+6. Criar uma senha
+Crie uma senha de acesso (algo que você vai lembrar).
+Digite a mesma senha de novo no campo de confirmação.
+
+7. Finalizar o cadastro
+Toque no botão "Cadastrar Senha".
+Se tudo estiver certo, vai aparecer uma nova tela.
+
 --------------------------------------------------------------------------------------------------------------------
 ''')
             case 2:
                 print('''
 -------------------------------------------------------------------------------------------------------------------
-2 - COMO CADASTRAR NO APLICATIVO? (PORTAL PACIENTE)
+2 - ONDE ACESSO MEUS RESULTADOS?
 
-1. Acesse o aplicativo
+1. AcessE o aplicativo
 Abra o aplicativo PortalPaciente no seu celular.
 
 2. Realize o login
