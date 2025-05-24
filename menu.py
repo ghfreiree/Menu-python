@@ -220,7 +220,7 @@ Toque em "Acessar" para entrar na consulta.
 ---------------------------------------------------
 ''')
             opc = int(input('Selecione uma opção de pergunta frequente: '))
-        elif maisPerguntas.upper() == 'NÃO':
+        elif maisPerguntas.upper() == 'NÃO' or maisPerguntas.upper() == 'NAO':
             break
         else:
             print('\n** Opção inválida. Tente novamente. **')
@@ -306,7 +306,7 @@ def coletar_info_usuario():
                 assunto = input('Assunto: ')
                 infos.append(assunto)
                 break
-            elif validar_assunto.upper() == 'NÃO':
+            elif validar_assunto.upper() == 'NÃO' or validar_assunto.upper() == 'NAO':
                 infos.append('*Sem assunto*')
                 break
             else:
@@ -362,19 +362,19 @@ def executar_menu():
                 imprimir_resposta(pergunta)
             case 2:
                 voltarMenu = quem_somos()
-                if voltarMenu.upper() == 'NÃO':
+                if voltarMenu.upper() == 'NÃO' or voltarMenu.upper() == 'NAO':
                     print('\nSaindo...')
                     break
-                elif voltarMenu.upper() != 'NÃO' and voltarMenu.upper() != 'SIM':
+                elif voltarMenu.upper() != 'NÃO' and voltarMenu.upper() != 'SIM' and voltarMenu.upper() != 'NAO':
                     print('\n** Opção inválida. Tente novamente. **')
             case 3:
                 decisao_mensagem = contato()
                 if decisao_mensagem.upper() == 'SIM':
                     voltarMenu = coletar_info_usuario()
-                    if voltarMenu.upper() == 'NÃO':
+                    if voltarMenu.upper() == 'NÃO' or voltarMenu.upper() == 'NAO':
                         print('\nSaindo...')
                         break
-                elif decisao_mensagem.upper() != 'SIM' and decisao_mensagem.upper() != 'NÃO':
+                elif decisao_mensagem.upper() != 'SIM' and decisao_mensagem.upper() != 'NÃO' and decisao_mensagem.upper() != 'NAO':
                     print('\n** Opção inválida. Tente novamente. **')
             case 4:
                 print('\nSaindo...')
